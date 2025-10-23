@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class DishController extends Controller
 {
     // Barcha taomlarni ko‘rish (barchaga ruxsat)
     public function index()
     {
+        Cache::put("salom", "TEST TEST");
         return Dish::all();
     }
 
